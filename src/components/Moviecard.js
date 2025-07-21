@@ -29,10 +29,11 @@ function Moviecard({ category, search }) {
         const fetchData = async () => {
             try {
                 let url = "";
+                  const apiKey = process.env.REACT_APP_TMDB_API_KEY;
                 if (search.trim() !== "") {
-                    url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&query=${search}`;
+                    url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${search}`;
                 } else {
-                    url = `https://api.themoviedb.org/3/movie/${category}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=1`;
+                    url = `https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&language=en-US&page=1`;
                 }
 
                 const response = await axios.get(url);

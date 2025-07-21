@@ -13,8 +13,9 @@ const MovieDetails = () => {
     useEffect(() => {
         const fetchMovie = async () => {
             try {
+                const apiKey = process.env.REACT_APP_TMDB_API_KEY;
                 const response = await axios.get(
-                    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=fr-FR`
+                    `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=fr-FR`
                 );
                 setMovie(response.data);
                 setLoading(false);
